@@ -17,5 +17,8 @@ ENV PROJECT_NAME="" \
 
 ## Create entrypoint
 COPY docker-git-entrypoint /usr/local/bin/docker-git-entrypoint
-RUN chmod 755 /usr/local/bin/docker-git-entrypoint
+
+## link .netrc to docker secret netrc
+RUN chmod 755 /usr/local/bin/docker-git-entrypoint 
+
 ENTRYPOINT ["/usr/local/bin/docker-git-entrypoint"]
