@@ -13,6 +13,7 @@ RUN apt-get update \
 
 ## Set up project enviroment
 ENV PROJECT_NAME="" \
+    PROJECT_PATH="" \
     PROJECT_URL=""
 
 ## Create entrypoint
