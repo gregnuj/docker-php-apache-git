@@ -1,9 +1,14 @@
 #!/bin/sh
 set -e
 
+# create project dir
+if [ -n "$PROJECT_WORKDIR" ]; then
+   mkdir -p "$PROJECT_WORKDIR"
+fi
+
 ## install project
 if [ -n "$PROJECT_VCS" ]; then
-    git clone $PROJECT_VCS $PROJECT_PATH
+    git clone -b $PROJECT_BRANCH $PROJECT_VCS $PROJECT_PATH
 fi
 
 exec "$@"
