@@ -17,7 +17,7 @@ if [ -n "$PROJECT_VCS_HOST" ]; then
 fi
 
 ## install project
-if [ -n "$PROJECT_VCS" ]; then
+if [ -n "$PROJECT_VCS_URL" ]; then
     git clone -b $PROJECT_VCS_BRANCH $PROJECT_VCS_URL $PROJECT_APPDIR
 fi
 
