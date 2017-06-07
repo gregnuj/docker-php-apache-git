@@ -8,9 +8,9 @@ if [ -n "$PROJECT_WORKDIR" ]; then
 fi
 
 # add key to user dir
-if [ -n "$SSH_CONFIG" ]; then
+if [ -n "$PROJECT_RSA" ]; then
    mkdir -p ~/.ssh
-   echo "\n$SSH_CONFIG\n" >> ~/.ssh/config
+   cp $PROJECT_RSA ~/.ssh/id_rsa
 fi
 
 ## install project
