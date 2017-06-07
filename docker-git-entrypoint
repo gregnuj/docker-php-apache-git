@@ -2,22 +2,22 @@
 set -e
 
 # create project dir
-if [ -z "$PROJECT_WORKDIR" ]; then
+if [ -n "$PROJECT_WORKDIR" ]; then
    mkdir -p "$PROJECT_WORKDIR"
    cd "$PROJECT_WORKDIR"
 fi
 
 # add key to user dir
 mkdir -p ~/.ssh 
-if [ -z "$PROJECT_VCS_HOST" ]; then  
-    echo "\n$PROJECT_VCS_HOST" >> ~/.ssh/config
-    echo "\n\tStrictHostKeyChecking no" >> ~/.ssh/config
-    echo "\n\tUserKnownHostsFile /dev/null" >> ~/.ssh/config
+if [ -n "$PROJECT_VCS_HOST" ]; then  
+    echo "\nHOST $PROJECT_VCS_HOST" >> ~/.ssh/config
+    echo "\tStrictHostKeyChecking no" >> ~/.ssh/config
+    echo "\tUserKnownHostsFile /dev/null" >> ~/.ssh/config
     [ -z "$PROJECT_VCS_RSA" ] || echo "\n\tIdentityFile $PROJECT_VCS_RSA" >> ~/.ssh/config
 fi
 
 ## install project
-if [ -z "$PROJECT_VCS" ]; then
+if [ -n "$PROJECT_VCS" ]; then
     git clone -b $PROJECT_VCS_BRANCH $PROJECT_VCS_URL $PROJECT_APPDIR
 fi
 
