@@ -16,11 +16,6 @@ if [ -z "$PROJECT_VCS_HOST" ]; then
     [ -z "$PROJECT_VCS_RSA" ] || echo "\n\tIdentityFile $PROJECT_VCS_RSA" >> ~/.ssh/config
 fi
 
-# add key to user dir
-if [ -n "$PROJECT_VCS_RSA" ]; then
-   cp $PROJECT_RSA ~/.ssh/id_rsa
-fi
-
 ## install project
 if [ -n "$PROJECT_VCS" ]; then
     git clone -b $PROJECT_BRANCH $PROJECT_VCS $PROJECT_PATH
