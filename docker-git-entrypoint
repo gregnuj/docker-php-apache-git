@@ -2,7 +2,7 @@
 set -e
 
 # create project dir
-if [ -n "$PROJECT_WORKDIR" ]; then
+if [ -z "$PROJECT_WORKDIR" ]; then
    mkdir -p "$PROJECT_WORKDIR"
    cd "$PROJECT_WORKDIR"
 fi
@@ -17,8 +17,8 @@ if [ -z "$PROJECT_VCS_HOST" ]; then
 fi
 
 ## install project
-if [ -n "$PROJECT_VCS" ]; then
-    git clone -b $PROJECT_BRANCH $PROJECT_VCS $PROJECT_PATH
+if [ -z "$PROJECT_VCS" ]; then
+    git clone -b $PROJECT_VCS_BRANCH $PROJECT_VCS_URL $PROJECT_APPDIR
 fi
 
 exec "$@"
