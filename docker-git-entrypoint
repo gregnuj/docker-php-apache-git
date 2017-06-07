@@ -8,8 +8,13 @@ if [ -n "$PROJECT_WORKDIR" ]; then
 fi
 
 # add key to user dir
-if [ -n "$PROJECT_RSA" ]; then
-   mkdir -p ~/.ssh
+mkdir -p ~/.ssh 
+[ -z "$PROJECT_VCS_HOST" ] echo "\n$PROJECT_VCS_RSA" >> ~/.ssh/config
+[ -z "$PROJECT_VCS_RSA" ] echo "\n\tStrictHostKeyChecking no"
+[ -z "$PROJECT_VCS_RSA" ] echo "\n\tUserKnownHostsFile /dev/null"
+[ -z "$PROJECT_VCS_RSA" ] echo "\n\tIdentityFile $PROJECT_VCS_RSA" >> ~/.ssh/config
+# add key to user dir
+if [ -n "$PROJECT_VCS_RSA" ]; then
    cp $PROJECT_RSA ~/.ssh/id_rsa
 fi
 
