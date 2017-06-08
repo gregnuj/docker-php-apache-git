@@ -13,13 +13,12 @@ RUN apt-get update \
 ENV \
     PROJECT_REPO="" \
     PROJECT_NAME="" \
-    PROJECT_BRANCH="" \
-    PROJECT_WEB_IMAGE="" \
     PROJECT_WORKDIR="" \
     PROJECT_APPDIR="" \
     PROJECT_VCS_HOST="" \
     PROJECT_VCS_RSA="" \
     PROJECT_VCS_URL="" \
+    PROJECT_VCS_BRANCH="" \
 
 ## Create entrypoint
 COPY docker-git-entrypoint /usr/local/bin/docker-git-entrypoint
